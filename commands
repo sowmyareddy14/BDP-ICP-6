@@ -1,0 +1,68 @@
+(1) Film Dataset:
+
+Creating and editing schema Config :
+
+	    solrctl instancedir --generate /tmp/films
+
+		cd /tmp/films/conf
+
+		gedit /tmp/films/conf/schema.xml
+
+Creating Collection for films dataset :
+
+		solrctl instancedir --create films /tmp/films
+
+		solrctl collection --create films
+
+Queries on film dataset:
+
+		(1) KeyWord Matching - name "15 Park Avenue" ( displays names with "15 Park Avenue" )
+
+		(2) Wildcard matching - ?ark ( displays names that matches word with "ark")
+
+		(3) Proximity matching - name : "Dancer dark"~2 (displays names with name Dancer and dark seperated by 2 words)
+
+		(4) Range searches - initial_release_date: [2003-01-01 TO 2004-01-01] (displays initial_release_date ranging between specified range values)
+
+		(5) Fuzzy logic - name : water~ ( displays the names macthing with the characters specified)
+
+
+		b) Wildspace Match - name : ?ark
+
+		c) Proximity Query - name : "Alone dark"~2 // Shows the result with name contains alone and dark words separated by a distance of 2.
+
+		d) Range Query - initial_release_date: [2003-10-10 TO 2004-10-10]
+
+		e) Fuzzy Logic - name: dark~ // displays the results with name matches any of these characters
+
+(2) Books Dataset:
+
+Creating and editing schema Config :
+
+	    solrctl instancedir --generate /tmp/books
+
+		cd /tmp/books/conf
+
+		gedit /tmp/books/conf/schema.xml
+
+
+Creating Collection for books dataset :
+
+		solrctl instancedir --create books /tmp/books
+
+		solrctl collection --create books
+
+Queries on books dataset:
+
+		(1) Genre Matching - genre_s : "fantasy" ( displays genres with fantasy )
+
+		(2) Price range matching query - price : [1 TO 6] (displays price ranging between 1 and 6 )
+
+		(3) author matching - author : "Glen Cook" ( displays author matching Glen Cook )
+
+		(4) Facet Query - Keeping price range : price : [1 TO 6] and facet field as instock ( it displays the count of instock in result )
+
+		(5) Logical Operation - instock : "true" AND price : [1 TO 6] ( displays data where instock is true and price ranges between 1 to 6 )
+
+		(6) Displaying only specific fields - instock : "true" and selecting authour in fl field. ( it displays only author fields where instock is true)
+
