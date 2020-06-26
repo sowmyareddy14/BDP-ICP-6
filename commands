@@ -2,7 +2,7 @@
 
 Creating and editing schema Config :
 
-	    solrctl instancedir --generate /tmp/films
+	       solrctl instancedir --generate /tmp/films
 
 		cd /tmp/films/conf
 
@@ -25,21 +25,12 @@ Queries on film dataset:
 		(4) Range searches - initial_release_date: [2003-01-01 TO 2004-01-01] (displays initial_release_date ranging between specified range values)
 
 		(5) Fuzzy logic - name : water~ ( displays the names macthing with the characters specified)
-
-
-		b) Wildspace Match - name : ?ark
-
-		c) Proximity Query - name : "Alone dark"~2 // Shows the result with name contains alone and dark words separated by a distance of 2.
-
-		d) Range Query - initial_release_date: [2003-10-10 TO 2004-10-10]
-
-		e) Fuzzy Logic - name: dark~ // displays the results with name matches any of these characters
-
+		
 (2) Books Dataset:
 
 Creating and editing schema Config :
 
-	    solrctl instancedir --generate /tmp/books
+	       solrctl instancedir --generate /tmp/books
 
 		cd /tmp/books/conf
 
